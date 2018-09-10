@@ -1,0 +1,48 @@
+change the relation of owners and restaurants to one to many
+Owner(OwnerID, oname)
+Primary key:OwnerID
+
+change birthdate attribute from Member to email address
+combine data and time attributes for Reservation 
+
+login page (main)
+	login as owner
+		->a view with textfields for ownerID and password
+		->a popup for login failed
+	login/register as member
+		->a view with phone number, cname, email address
+		->login button
+		->register button insert into member table
+		->a popup for login failed
+	continue as customer
+	set the isMember variable value
+
+owners
+	a view for list of restaurants 	
+		->a view for each single restaurant
+			->a view for all the reservations related to this restaurant
+				->a view for all the food in this reservation with the total cost
+			->a view for all the reviews for this restaurant (display customer name)
+			->a view for all the food in this restaurant's menu 
+				(delete, insert, update food, show the most popular one)
+
+customers/members
+	a view for list of restaurants and members' personal information with an "edit" button(only show this button when it's member) (show the score for each restaurant)
+		a view for updating member information
+			-all the editable basic information (point is not editable)
+			-an "update" button
+		a view for each single restaurant
+			-show all the reviews related to this restaurant
+			-show all the food of this restaurant
+			-checkbox for each food
+			-a button "make reservation"
+			-textfields for review information
+			-a button "create a review"
+		after clicking the "make reservation" button
+			a view for reservation with all the selected foods, cost, basic information
+				if it's a member, basic information is filled in for member, update the points(points =+ cost)
+				if it's not a member, ask for name and phone number, check if it's existed in customer table,
+					insert if it's not in the table, update if phone number matches but name doesn't
+		after clicking the "write a review" button
+			a popup for "successfully created a review"
+			
